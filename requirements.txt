@@ -1,0 +1,9 @@
+anthropic>=0.40
+chromadb>=0.5
+sentence-transformers>=3.0,<3.4
+requests>=2.31
+beautifulsoup4>=4.12
+pyyaml>=6.0
+# Intel Macs can't get torch > 2.2.2; newer transformers needs a newer torch.
+transformers>=4.41,<4.47
+numpy<2

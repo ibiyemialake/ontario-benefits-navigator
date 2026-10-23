@@ -1,0 +1,63 @@
+# The navigator's knowledge base. Only these pages are searched and cited.
+# English URLs below were checked on 2026-10-17. French versions are found
+# automatically from each page's language link during ingest.
+# To add a program: give it an id, names, level, life events, and its official page(s).
+
+- id: ei_regular
+  name_en: Employment Insurance regular benefits
+  name_fr: Prestations régulières d'assurance-emploi
+  level: federal
+  life_events: [lost_job]
+  urls:
+    - https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/eligibility.html
+
+- id: ei_maternity_parental
+  name_en: EI maternity and parental benefits
+  name_fr: Prestations de maternité et parentales de l'assurance-emploi
+  level: federal
+  life_events: [having_baby]
+  urls:
+    - https://www.canada.ca/en/services/benefits/ei/ei-maternity-parental.html
+    - https://www.canada.ca/en/services/benefits/ei/ei-maternity-parental/eligibility.html
+
+- id: ccb
+  name_en: Canada Child Benefit
+  name_fr: Allocation canadienne pour enfants
+  level: federal
+  life_events: [having_baby, moved_to_ontario]
+  urls:
+    - https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-before-you-apply.html
+    - https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-apply.html
+
+- id: gst_hst_credit
+  name_en: GST/HST credit
+  name_fr: Crédit pour la TPS/TVH
+  level: federal
+  life_events: [lost_job, having_baby, moved_to_ontario]
+  urls:
+    - https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gsthstc-eligibility.html
+    - https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/rc4210/gst-hst-credit.html
+
+- id: ocb
+  name_en: Ontario Child Benefit
+  name_fr: Prestation ontarienne pour enfants
+  level: ontario
+  life_events: [having_baby, moved_to_ontario]
+  urls:
+    - https://www.ontario.ca/page/ontario-child-benefit
+
+- id: ohip
+  name_en: Ontario Health Insurance Plan (OHIP)
+  name_fr: Assurance-santé de l'Ontario (OHIP)
+  level: ontario
+  life_events: [moved_to_ontario, having_baby]
+  urls:
+    - https://www.ontario.ca/page/apply-ohip-and-get-health-card
+
+- id: ontario_works
+  name_en: Ontario Works
+  name_fr: Ontario au travail
+  level: ontario
+  life_events: [lost_job]
+  urls:
+    - https://www.ontario.ca/page/ontario-works

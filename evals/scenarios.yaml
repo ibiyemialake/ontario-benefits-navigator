@@ -1,0 +1,52 @@
+# Realistic situations with known right answers. A simulated person answers the
+# agent's follow-up questions using only the "persona" facts.
+#   expected: programs that should be listed as likely or possible
+#   must_not: programs that should NOT be listed as likely or possible
+# Have someone who knows these programs review this file — it's your ground truth.
+
+- id: laid_off_en
+  lang: en
+  opening: "I just got laid off from my job in Toronto. What help can I get?"
+  persona: Lives in Toronto, Ontario. Worked full time for 3 years. Laid off because of
+    budget cuts. No children. Has some savings. Canadian citizen.
+  expected: [ei_regular]
+  must_not: [ei_maternity_parental, ccb, ocb]
+
+- id: baby_en
+  lang: en
+  opening: "My partner and I are having our first baby in March. What should we apply for?"
+  persona: Lives in Ottawa, Ontario. Both parents work full time and have for years.
+    First child. Canadian citizens. Moderate income.
+  expected: [ei_maternity_parental, ccb, ocb, ohip]
+  must_not: [ei_regular, ontario_works]
+
+- id: newcomer_en
+  lang: en
+  opening: "We just moved to Ontario as permanent residents with two kids, ages 4 and 9."
+  persona: Arrived in Mississauga, Ontario last month as permanent residents. Two children
+    aged 4 and 9. Neither parent has a job yet. Never filed Canadian taxes.
+  expected: [ohip, ccb, ocb, gst_hst_credit]
+  must_not: [ei_maternity_parental, ei_regular]
+
+- id: quebec_baby_en
+  lang: en
+  opening: "I'm pregnant and live in Montreal. Can I get EI maternity benefits?"
+  persona: Lives in Montreal, Quebec. Works full time. First child.
+  expected: [ccb]
+  must_not: [ei_maternity_parental, ocb, ohip]
+
+- id: laid_off_fr
+  lang: fr
+  opening: "Je viens de perdre mon emploi à Ottawa. Quelles aides puis-je recevoir?"
+  persona: Vit à Ottawa, Ontario. A travaillé à temps plein pendant 2 ans. Mis à pied
+    à cause d'une restructuration. Pas d'enfants. Citoyenne canadienne.
+  expected: [ei_regular]
+  must_not: [ei_maternity_parental, ccb, ocb]
+
+- id: baby_fr
+  lang: fr
+  opening: "J'attends un bébé en mai. À quoi ai-je droit?"
+  persona: Vit à Sudbury, Ontario. Travaille à temps plein depuis 4 ans. Premier enfant.
+    Citoyenne canadienne.
+  expected: [ei_maternity_parental, ccb, ocb]
+  must_not: [ei_regular]

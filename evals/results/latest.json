@@ -1,0 +1,631 @@
+[
+  {
+    "id": "laid_off_en",
+    "recall": 1.0,
+    "missed": [],
+    "false_pos": [],
+    "grounded": 0.0,
+    "invented": 0,
+    "lang_ok": true,
+    "questions": 1,
+    "_answer": {
+      "language": "en",
+      "summary": "Because you were laid off, Employment Insurance is the main program to look at first. Ontario Works and the GST/HST credit (now called the Canada Groceries and Essentials Benefit) are backups. The government makes the final decision on each one.",
+      "programs": [
+        {
+          "program_id": "ei_regular",
+          "fit": "likely",
+          "why": "EI regular benefits are for people who lost their job through no fault of their own. A layoff usually fits that. You also need enough insurable hours, between 420 and 700 depending on your region's unemployment rate. You must have been without work and pay for at least 7 consecutive days. You must also be ready, willing and able to work and be actively looking for work. Whether you qualify is decided by the government.",
+          "next_step": "Apply for EI as soon as possible. The government encourages you to apply and let them decide if you're eligible. Once you're approved, complete your EI reports every 2 weeks, or you could lose benefits.",
+          "sources": [
+            "ei_regular-en-1",
+            "ei_regular-en-8",
+            "ei_regular-en-0",
+            "ei_regular-en-2"
+          ]
+        },
+        {
+          "program_id": "ontario_works",
+          "fit": "possible",
+          "why": "Ontario Works gives money for living expenses such as food and rent, plus health benefits, to people in financial need. Most people must take part in employment-related activities. The amount depends on your situation. Up to $733 a month for basic needs and shelter is listed for a single person. You mentioned you have savings and no children, so it may not fit right now. It could become relevant if your money runs short before EI starts or if EI doesn't come through. The sources I found don't explain how savings are treated.",
+          "next_step": "If your finances get tight, start an Ontario Works application online. The application will show whether you qualify.",
+          "sources": [
+            "ontario_works-en-1",
+            "ontario_works-en-10"
+          ]
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "why": "The Canada Groceries and Essentials Benefit (formerly the GST/HST credit) is a tax-free quarterly payment for low- and modest-income individuals and families. A drop in income after a layoff may affect whether you qualify. The sources I found don't give the income cut-offs.",
+          "next_step": "Check the Canada Revenue Agency's page on the benefit and make sure your tax return is filed, since the credit is tied to your tax information.",
+          "sources": [
+            "gst_hst_credit-en-16"
+          ]
+        }
+      ],
+      "not_covered": "I didn't check the exact income or asset limits, benefit amounts, or how long EI would last for you. I also didn't cover severance and its effect on EI, tax advice, or municipal programs such as the City of Toronto's. Programs that don't depend on the layoff, such as help finding a new job or training, aren't covered either. Confirm details with Service Canada, the CRA and Ontario Works."
+    },
+    "_report": {
+      "checks": [
+        {
+          "program_id": "ei_regular",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The core eligibility points all match the text: the 420-700 hour range, 7 consecutive days without work and pay, being ready, willing and capable, actively seeking work, applying early, and EI reports every 2 weeks. The statement also says \"A layoff usually fits that,\" and the official text never says this. It is an added claim."
+        },
+        {
+          "program_id": "ontario_works",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The program description, the $733 single-person maximum, the employment-activity requirement and the online application are all in the text. Three things are not. The text never says the application will show whether you qualify. It also says nothing about savings, children, or EI timing, so the claims that Ontario Works \"may not fit right now\" and \"could become relevant\" if EI is delayed are the assistant's own inferences. The admission that the sources don't explain how savings are treated is accurate."
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The description of the benefit (formerly the GST/HST credit, tax-free, quarterly, for low- and modest-income individuals and families) matches the text. The statement then adds claims the text does not contain. One is that a drop in income after a layoff may affect eligibility. The other is that you must file a tax return because the credit is tied to your tax information. Both are plausible but unsupported by the cited text, which says nothing about eligibility rules or tax filing."
+        }
+      ],
+      "grounded": 0.0,
+      "invented_citations": 0,
+      "unknown_programs": [],
+      "questions_asked": 1
+    },
+    "_trace_questions": [
+      {
+        "q": "Are you in urgent need right now (e.g., worried about covering rent or food), and do you have children under 18 at home?",
+        "a": "I have no children, and I have some savings, but I'm not sure how urgent my situation is yet."
+      }
+    ]
+  },
+  {
+    "id": "baby_en",
+    "recall": 1.0,
+    "missed": [],
+    "false_pos": [],
+    "grounded": 0.6,
+    "invented": 0,
+    "lang_ok": true,
+    "questions": 0,
+    "_answer": {
+      "language": "en",
+      "summary": "For a first baby in Ontario, the main things to look at are EI maternity/parental benefits, the Canada Child Benefit (which also covers the Ontario Child Benefit), your baby's OHIP coverage, and the GST/HST credit (now called the Canada Groceries and Essentials Benefit). The government makes the final decision on each one.",
+      "programs": [
+        {
+          "program_id": "ei_maternity_parental",
+          "fit": "likely",
+          "why": "If you or your partner have been working, you may qualify. The guideline is 600 insured hours in the 52 weeks before your claim starts, and weekly earnings that drop by more than 40%. Maternity benefits are only for the person who is pregnant or gave birth and can't be shared. Parental benefits can be shared between parents, and each parent applies separately. If you share, you must both choose the same option, standard or extended. You can't switch once a week has been paid.",
+          "next_step": "Apply as soon as you can. Maternity benefits can start as early as 12 weeks before the due date. Decide between standard and extended parental benefits before you apply. Each parent needs a valid SIN.",
+          "sources": [
+            "ei_maternity_parental-en-5",
+            "ei_maternity_parental-en-1",
+            "ei_maternity_parental-en-2",
+            "ei_maternity_parental-en-7"
+          ]
+        },
+        {
+          "program_id": "ccb",
+          "fit": "likely",
+          "why": "The CCB is for people who live with and care for a child under 18. The amount depends on your adjusted family net income and the number and ages of your children. You should apply as soon as your child is born.",
+          "next_step": "When you register the birth online in Ontario, or use the Automated Benefits Application at the hospital, you can apply for the CCB at the same time. You need to consent to share your information with the CRA and enter your SIN. Otherwise, apply through your CRA account.",
+          "sources": [
+            "ccb-en-0",
+            "ccb-en-15",
+            "ccb-en-18"
+          ]
+        },
+        {
+          "program_id": "ocb",
+          "fit": "possible",
+          "why": "Low-to-moderate income families can get up to $1,760 per child per year. The amount depends on your family net income. There is no separate application: you are assessed automatically when you apply for the CCB.",
+          "next_step": "Apply for the CCB. File your taxes every year, even if you have no income, so that you stay eligible.",
+          "sources": [
+            "ocb-en-1",
+            "ocb-en-2",
+            "ocb-en-3"
+          ]
+        },
+        {
+          "program_id": "ohip",
+          "fit": "likely",
+          "why": "If your baby is born in Ontario, your baby needs their own health coverage. The process differs depending on whether the birth is in a hospital with birthing facilities or with a registered midwife.",
+          "next_step": "At a birthing hospital or with a midwife, you'll be given the Ontario Health Coverage Infant Registration form. It confirms that your baby's primary residence is Ontario and that your baby will be in Ontario at least 153 days in any 12-month period. The hospital or midwife submits the top part. Keep the bottom part. The health card is mailed within 8 weeks of submission. If you aren't given the form, apply through ServiceOntario.",
+          "sources": [
+            "ohip-en-10",
+            "ohip-en-11",
+            "ohip-en-12"
+          ]
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "why": "This credit, now called the Canada Groceries and Essentials Benefit, can be paid even to people with no income in the year. If you receive the CCB for your child, the child is automatically included when the CRA calculates the amount.",
+          "next_step": "Check the CRA eligibility page. Once your CCB is set up, your child is considered automatically.",
+          "sources": [
+            "gst_hst_credit-en-0"
+          ]
+        }
+      ],
+      "not_covered": "I didn't check your work history, income or immigration status, so I can't say which of these you meet. My sources don't cover employer top-up plans, municipal or other provincial programs, or tax advice. They also don't cover amounts for EI benefits or the CCB. The CRA, Service Canada and ServiceOntario make the final decisions."
+    },
+    "_report": {
+      "checks": [
+        {
+          "program_id": "ei_maternity_parental",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The opening line, \"If you or your partner have been working, you may qualify,\" is not in the official text. The text requires each applicant to show their own 600 insured hours and their own drop in weekly earnings, and a partner's work does not count. The rest is supported, but two points are slightly off. The switching rule also covers the case where a payment has already been made to the other parent when sharing. And the text says a valid SIN means you \"may be eligible,\" not that each parent \"needs\" one."
+        },
+        {
+          "program_id": "ccb",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The core is supported: the calculation factors, the birth registration and Automated Benefits Application routes, the consent and SIN requirements, and the CRA account option all match the text. However, the statement drops two qualifiers. The text says you may be eligible if you live with and care for a child under 18 and meet all of the other criteria, but the statement presents living with and caring for a child as sufficient. It also says to apply as soon as the child is born, while the text says to apply once you or your spouse or common-law partner meet the eligibility criteria and the birth happens. The statement also leaves out the mail option (Form RC66), which the text offers when the other methods are unavailable. It leaves out the note that the hospital Automated Benefits Application is not available in Nunavut as well."
+        },
+        {
+          "program_id": "ocb",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": ""
+        },
+        {
+          "program_id": "ohip",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": ""
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": "The statement's claims match the official text: the benefit's new name (previously the GST/HST credit), eligibility even with no income, and automatic inclusion of a child for whom CCB is received. The phrase 'Once your CCB is set up' is a slight paraphrase of 'currently receiving', but it does not change the meaning. The instruction to check the CRA eligibility page is a generic pointer, not a factual claim."
+        }
+      ],
+      "grounded": 0.6,
+      "invented_citations": 0,
+      "unknown_programs": [],
+      "questions_asked": 0
+    },
+    "_trace_questions": []
+  },
+  {
+    "id": "newcomer_en",
+    "recall": 1.0,
+    "missed": [],
+    "false_pos": [],
+    "grounded": 0.25,
+    "invented": 0,
+    "lang_ok": true,
+    "questions": 0,
+    "_answer": {
+      "language": "en",
+      "summary": "As permanent residents with two children, you may fit four programs: the Canada Child Benefit, the Ontario Child Benefit, the GST/HST credit (now called the Canada Groceries and Essentials Benefit) and OHIP. The government makes the final decision on each one.",
+      "programs": [
+        {
+          "program_id": "ccb",
+          "fit": "likely",
+          "why": "The CCB is for people who live with and care for a child under 18. You or your spouse or common-law partner must be a Canadian citizen, permanent resident or another listed status, and you must be a resident of Canada for tax purposes. Your kids are 4 and 9, and you are permanent residents. The amount depends on your adjusted family net income and the number and ages of your children.",
+          "next_step": "Apply through the Canada Revenue Agency (CRA) using the 'Apply for the benefit' steps on its CCB page. Do this soon after you arrive.",
+          "sources": [
+            "ccb-en-0",
+            "ccb-en-3",
+            "ccb-en-14"
+          ]
+        },
+        {
+          "program_id": "ocb",
+          "fit": "likely",
+          "why": "There is no separate application for the Ontario Child Benefit. When you apply for the CCB, you are automatically assessed for it. You must file your taxes every year to qualify, even with no income.",
+          "next_step": "Apply for the CCB through the CRA, and file your tax return every year. For questions, call the CRA at 1-800-387-1193.",
+          "sources": [
+            "ocb-en-2",
+            "ocb-en-4"
+          ]
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "why": "The GST/HST credit is now called the Canada Groceries and Essentials Benefit. You may be eligible if you are a resident of Canada for tax purposes and at least 19 years old, even with no income in the year. If you receive the CCB for a child, that child is automatically considered in the calculation.",
+          "next_step": "Check the CRA's eligibility page and file your tax return. The CRA uses your return to assess you.",
+          "sources": [
+            "gst_hst_credit-en-0",
+            "gst_hst_credit-en-1"
+          ]
+        },
+        {
+          "program_id": "ohip",
+          "fit": "likely",
+          "why": "OHIP is Ontario's health insurance. You apply in person at a ServiceOntario centre. The application needs documents that prove your OHIP-eligible immigration status (such as a Permanent Resident Card), your Ontario residency and your identity.",
+          "next_step": "Fill out the Registration for Ontario Health Insurance Coverage form. Take it, with your original documents, to a ServiceOntario centre. For questions on eligibility, call ServiceOntario INFOline at 1-866-532-3161.",
+          "sources": [
+            "ohip-en-8",
+            "ohip-en-7"
+          ]
+        }
+      ],
+      "not_covered": "I did not find details on any OHIP waiting period, on benefit amounts, or on payment dates in my sources, so I have left them out. I also can't cover other provinces, municipal programs (such as child care or transit help), or tax advice. Work-related benefits are not covered because you haven't mentioned a job loss or new baby. If your situation changes, I can look at those. The Canada Revenue Agency and ServiceOntario make the final eligibility decisions."
+    },
+    "_report": {
+      "checks": [
+        {
+          "program_id": "ccb",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [
+            "4",
+            "9"
+          ],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The core eligibility and calculation points match the text. However, \"Apply through the CRA using the 'Apply for the benefit' steps on its CCB page\" is only loosely supported, since the text just lists \"Apply for the benefit\" as a section heading with no content, and it never names the CRA in the excerpt. \"Do this soon after you arrive\" is not in the text, which gives no timing guidance (the \"When to apply\" section is empty). The statement also assumes the user's situation (kids aged 4 and 9, permanent residents, recently arrived) without confirming they meet the residency-for-tax-purposes requirement. It omits that the benefit is reduced as income rises, but that is a minor point."
+        },
+        {
+          "program_id": "ocb",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": ""
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The core points are in the text: the new name, eligibility even with no income, and the CCB child being counted automatically. But the statement is incomplete or stretched in three places. It gives 19+ as the age requirement and leaves out the route for people under 19 who have a spouse or common-law partner, or who are or were a parent living with their child. It simplifies the residency rule, which requires residency in the month before a payment and at the start of the month of payment. And 'The CRA uses your return to assess you' is not stated in the text, which only mentions having filed a return in the context of turning 19."
+        },
+        {
+          "program_id": "ohip",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The core is supported: apply in person at a ServiceOntario centre, bring the completed form and three documents, and call 1-866-532-3161. Several details go beyond the text. The Permanent Resident Card example does not appear in it. The statement leaves out Canadian citizenship as a valid status proof. It says to bring all original documents, but the residency proof can be an original, printed or digital document. The INFOline is cited in the text only for the new eligibility criteria, not for eligibility questions in general. The opening definition of OHIP is also not in the text."
+        }
+      ],
+      "grounded": 0.25,
+      "invented_citations": 0,
+      "unknown_programs": [],
+      "questions_asked": 0
+    },
+    "_trace_questions": []
+  },
+  {
+    "id": "quebec_baby_en",
+    "recall": 1.0,
+    "missed": [],
+    "false_pos": [],
+    "grounded": 0.5,
+    "invented": 0,
+    "lang_ok": true,
+    "questions": 0,
+    "_answer": {
+      "language": "en",
+      "summary": "Probably not through EI. Quebec provides maternity, paternity, parental and adoption benefits to its residents through the Québec Parental Insurance Plan (QPIP). The Canada Child Benefit may still be worth looking at once your baby is born.",
+      "programs": [
+        {
+          "program_id": "ei_maternity_parental",
+          "fit": "unlikely",
+          "why": "The EI page says the Province of Quebec is responsible for maternity, paternity, parental and adoption benefits for its residents, and it points to the Québec Parental Insurance Plan. Since you live in Montreal, that plan is the one that applies to you, not federal EI.",
+          "next_step": "Go to the Québec Parental Insurance Plan (QPIP) to check your eligibility and apply. The EI page links to it.",
+          "sources": [
+            "ei_maternity_parental-en-0"
+          ]
+        },
+        {
+          "program_id": "ccb",
+          "fit": "possible",
+          "why": "The Canada Child Benefit may be available if you live with and care for a child under 18. The amount depends on your family net income and on the number and ages of your children. Quebec residents can apply through online birth registration.",
+          "next_step": "After the birth, apply through the birth registration with your province, through the Automated Benefits Application at the hospital or birthing centre, or through your CRA account. You will need your SIN.",
+          "sources": [
+            "ccb-en-0",
+            "ccb-en-18"
+          ]
+        }
+      ],
+      "not_covered": "I can't give details on QPIP, such as its amounts, eligibility rules or how to apply. My sources only cover federal programs and Ontario programs, and you live in Quebec. I also didn't cover Quebec's other family benefits, municipal programs or tax advice. The government makes the final decision on every program."
+    },
+    "_report": {
+      "checks": [
+        {
+          "program_id": "ei_maternity_parental",
+          "fit": "unlikely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "The text supports that Quebec is responsible for maternity, paternity, parental and adoption benefits for its residents and that readers should visit the Québec Parental Insurance Plan. However, the statement adds that the plan applies to the user because they live in Montreal. Montreal is in Quebec, so this is a reasonable inference, but the text says nothing about Montreal and no residency check was done. The statement also says the EI page links to QPIP and tells the user to check eligibility and apply there. The text only says to 'Visit Québec Parental Insurance Plan for more information', and the link itself is not shown. It also claims federal EI does not apply ('not federal EI') more firmly than the text does."
+        },
+        {
+          "program_id": "ccb",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": "All claims are backed by the official text: eligibility (live with and care for a child under 18), amount depends on income and the number and ages of children, Quebec among the provinces with online birth registration, the three application channels (province birth registration, Automated Benefits Application at hospital/birthing centre, CRA account), and SIN entry. The statement's wording is hedged ('may be available'), which matches the text."
+        }
+      ],
+      "grounded": 0.5,
+      "invented_citations": 0,
+      "unknown_programs": [],
+      "questions_asked": 0
+    },
+    "_trace_questions": []
+  },
+  {
+    "id": "laid_off_fr",
+    "recall": 1.0,
+    "missed": [],
+    "false_pos": [],
+    "grounded": 0.0,
+    "invented": 0,
+    "lang_ok": true,
+    "questions": 1,
+    "_answer": {
+      "language": "fr",
+      "summary": "Une mise à pied pour restructuration est une perte d'emploi dont vous n'êtes pas responsable, ce qui cadre avec l'assurance-emploi. Selon votre situation financière, Ontario au travail et l'allocation pour l'épicerie pourraient aussi s'appliquer. Les gouvernements prennent les décisions finales.",
+      "programs": [
+        {
+          "program_id": "ei_regular",
+          "fit": "likely",
+          "why": "Les prestations régulières s'adressent aux personnes qui ont perdu leur emploi assurable sans en être responsables. Il faut aussi avoir eu au moins 7 jours consécutifs sans travail ni salaire, avoir accumulé le nombre d'heures assurables requis et être prête à travailler et chercher activement un emploi. Le nombre d'heures requis varie selon le taux de chômage de votre région.",
+          "next_step": "Faites votre demande d'assurance-emploi dès que possible sur canada.ca. Une fois la demande faite, remplissez vos déclarations aux 2 semaines. Gardez un registre de vos recherches d'emploi.",
+          "sources": [
+            "ei_regular-fr-1",
+            "ei_regular-fr-12",
+            "ei_regular-fr-2",
+            "ei_regular-fr-4"
+          ]
+        },
+        {
+          "program_id": "ontario_works",
+          "fit": "possible",
+          "why": "Si vous avez besoin d'aide pour la nourriture et le loyer et que vous êtes dans le besoin, Ontario au travail peut offrir de l'aide financière et des prestations de santé. Pour une personne célibataire, le montant peut aller jusqu'à 733 $ par mois pour les besoins de base et le logement. Dans la plupart des cas, il faut participer à des activités liées à l'emploi. Ce programme est surtout utile si vous n'avez pas assez de revenu ou d'économies en attendant l'assurance-emploi.",
+          "next_step": "Si vous manquez d'argent pour vous nourrir ou vous loger, présentez une demande à Ontario au travail sur ontario.ca. Vous pouvez aussi contacter le bureau de votre municipalité.",
+          "sources": [
+            "ontario_works-fr-1",
+            "ontario_works-fr-0",
+            "ontario_works-fr-3"
+          ]
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "why": "L'Allocation canadienne pour l'épicerie et les besoins essentiels (ACEBE, anciennement le crédit pour la TPS/TVH) est un montant non imposable versé chaque trimestre aux personnes et aux familles à revenu faible ou modeste. Vous pourriez y être admissible même sans revenu durant l'année.",
+          "next_step": "Produisez votre déclaration de revenus. L'ARC se sert de cette déclaration pour évaluer votre admissibilité. Consultez la page de l'ARC sur l'ACEBE pour les détails.",
+          "sources": [
+            "gst_hst_credit-fr-17",
+            "gst_hst_credit-fr-0"
+          ]
+        }
+      ],
+      "not_covered": "Je n'ai pas de données sur les programmes municipaux d'Ottawa, sur les aides d'autres provinces, sur les services d'emploi ou de formation en détail, ni sur l'impôt. Je ne peux pas calculer vos montants ni vérifier si vous avez assez d'heures assurables. Je ne connais pas non plus votre taux de chômage régional. Les décisions finales reviennent aux organismes responsables."
+    },
+    "_report": {
+      "checks": [
+        {
+          "program_id": "ei_regular",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "Les critères d'admissibilité (emploi assurable, perte d'emploi sans en être responsable, 7 jours consécutifs sans travail ni salaire, heures requises, disponibilité, recherche d'emploi consignée) et les déclarations aux 2 semaines sont appuyés. Deux éléments ne le sont pas. Le conseil de faire la demande « dès que possible sur canada.ca » ne figure pas dans le texte. Le texte ne dit pas non plus explicitement que les heures requises varient selon le taux de chômage de la région : le tableau n'affiche que des fourchettes de pourcentages, sans en-têtes ni mention de la région."
+        },
+        {
+          "program_id": "ontario_works",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "Le cœur de l'énoncé (aide financière et prestations de santé, jusqu'à 733 $ par mois pour une personne célibataire, activités liées à l'emploi dans la plupart des cas) est bien appuyé. Mais le texte officiel ne dit pas que le programme est « surtout utile » pour combler l'attente de l'assurance-emploi, ni quoi que ce soit sur l'assurance-emploi ou le manque de revenu ou d'économies. Il ne mentionne pas non plus de demande sur ontario.ca ni de contact avec le bureau de la municipalité : il indique seulement qu'on peut présenter une demande. Ces ajouts ne figurent pas dans le texte."
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "Most of the statement is supported: the ACEBE is the former GST/HST credit, it is a non-taxable amount paid quarterly to low- and modest-income individuals and families, and you may be eligible even with no income during the year. However, the official text does not say that you must file a tax return or that the CRA uses the return to assess eligibility. That instruction is added. The text also does not mention a CRA ACEBE page to consult."
+        }
+      ],
+      "grounded": 0.0,
+      "invented_citations": 0,
+      "unknown_programs": [],
+      "questions_asked": 1
+    },
+    "_trace_questions": [
+      {
+        "q": "Comment votre emploi a-t-il pris fin (mise à pied, licenciement, démission, fin de contrat)?",
+        "a": "J'ai été mise à pied à cause d'une restructuration."
+      }
+    ]
+  },
+  {
+    "id": "baby_fr",
+    "recall": 1.0,
+    "missed": [],
+    "false_pos": [],
+    "grounded": 0.6,
+    "invented": 0,
+    "lang_ok": true,
+    "questions": 1,
+    "_answer": {
+      "language": "fr",
+      "summary": "Comme vous vivez en Ontario et travaillez à temps plein depuis 4 ans, plusieurs programmes fédéraux et ontariens pourraient s'appliquer à vous et à votre bébé. Le gouvernement prend la décision finale pour chacun.",
+      "programs": [
+        {
+          "program_id": "ei_maternity_parental",
+          "fit": "likely",
+          "why": "Ces prestations aident les personnes qui s'absentent du travail parce qu'elles sont enceintes ou viennent d'accoucher, puis les parents qui s'occupent d'un nouveau-né. Les lignes directrices demandent 600 heures d'emploi assurable au cours des 52 semaines précédentes et une baisse de plus de 40 % de votre rémunération hebdomadaire normale. Votre emploi à temps plein pourrait vous permettre de les atteindre. Vous pourriez recevoir jusqu'à 55 % de votre rémunération, jusqu'à un maximum de 729 $ par semaine. Les prestations de maternité ne peuvent pas être partagées. Pour les prestations parentales, vous choisissez entre l'option standard (dans les 52 semaines) et l'option prolongée (dans les 78 semaines).",
+          "next_step": "Présentez votre demande dès que possible. Le gouvernement déterminera votre admissibilité. Avant de choisir entre les prestations parentales standards et prolongées, comparez-les, car vous ne pourrez plus changer une fois le premier paiement versé.",
+          "sources": [
+            "ei_maternity_parental-fr-0",
+            "ei_maternity_parental-fr-1",
+            "ei_maternity_parental-fr-2",
+            "ei_maternity_parental-fr-3",
+            "ei_maternity_parental-fr-6"
+          ]
+        },
+        {
+          "program_id": "ccb",
+          "fit": "likely",
+          "why": "L'Allocation canadienne pour enfants s'adresse aux familles qui élèvent un enfant. Vous pouvez la demander au moment de l'enregistrement de la naissance, y compris en ligne en Ontario.",
+          "next_step": "Au moment d'enregistrer la naissance de votre bébé, demandez l'ACE sur le formulaire d'enregistrement et donnez votre consentement pour que l'information soit transmise à l'ARC. Vous pouvez aussi faire une demande directement à l'ARC.",
+          "sources": [
+            "ccb-fr-22",
+            "ccb-fr-14",
+            "ccb-fr-1"
+          ]
+        },
+        {
+          "program_id": "ocb",
+          "fit": "possible",
+          "why": "La Prestation ontarienne pour enfants s'adresse aux familles à revenu faible ou modéré. Elle peut atteindre 1 760 $ par enfant par année selon le revenu familial net et le nombre d'enfants. Votre revenu familial influencera donc l'admissibilité.",
+          "next_step": "Il n'y a pas de demande distincte. Demandez l'ACE auprès de l'ARC et vous serez évaluée automatiquement. Produisez votre déclaration de revenus chaque année.",
+          "sources": [
+            "ocb-fr-0",
+            "ocb-fr-1",
+            "ocb-fr-2",
+            "ocb-fr-3"
+          ]
+        },
+        {
+          "program_id": "ohip",
+          "fit": "likely",
+          "why": "Si votre bébé naît dans un hôpital ontarien ayant des installations de naissance ou avec une sage-femme autorisée, vous pouvez l'inscrire à l'Assurance-santé de l'Ontario avec le formulaire d'inscription des nouveau-nés. Vous devez confirmer que sa résidence principale est en Ontario et qu'il y sera au moins 153 jours par période de 12 mois.",
+          "next_step": "Remplissez le formulaire d'inscription des nouveau-nés fourni par l'hôpital ou la sage-femme. Gardez la partie inférieure jusqu'à l'arrivée de la carte Santé. Elle est postée dans les huit semaines suivant l'envoi du formulaire. Si on ne vous remet pas le formulaire, communiquez avec ServiceOntario.",
+          "sources": [
+            "ohip-fr-10",
+            "ohip-fr-11",
+            "ohip-fr-12"
+          ]
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "why": "L'Allocation canadienne pour l'épicerie et les besoins essentiels (ancien crédit pour la TPS/TVH) est versée chaque trimestre aux personnes et familles à revenu faible ou modeste. Si vous recevez l'ACE, l'enfant est automatiquement pris en compte dans le calcul. Votre revenu influencera l'admissibilité.",
+          "next_step": "Produisez votre déclaration de revenus. Une fois l'ACE demandée, l'ARC tiendra compte de votre enfant dans le calcul.",
+          "sources": [
+            "gst_hst_credit-fr-17",
+            "gst_hst_credit-fr-0"
+          ]
+        }
+      ],
+      "not_covered": "Je n'ai pas de renseignements sur les montants exacts de l'ACE, sur ce que vous recevriez selon votre revenu, ni sur le congé de maternité non rémunéré prévu par la loi ou les politiques de votre employeur. Je ne couvre pas non plus les programmes municipaux ou d'autres provinces, ni les conseils fiscaux. Chaque organisme prend la décision finale sur votre admissibilité."
+    },
+    "_report": {
+      "checks": [
+        {
+          "program_id": "ei_maternity_parental",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "Le cœur de l'énoncé est appuyé par le texte : bénéficiaires, 600 heures, baisse de plus de 40 %, 55 % jusqu'à 729 $, maternité non partageable, options standard/prolongée, demande rapide, impossibilité de changer après un paiement. Mais l'énoncé ajoute que « votre emploi à temps plein pourrait vous permettre de les atteindre », ce que le texte ne dit pas. Il omet aussi que la période de 600 heures est la plus courte entre 52 semaines et la dernière demande. Il omet aussi la baisse de rémunération « pendant au moins 1 semaine » et l'exclusion du Québec. Il dit que les parents d'un nouveau-né sont aidés, mais passe sous silence les enfants adoptés. Enfin, le blocage du choix vaut aussi si l'autre parent a reçu un paiement."
+        },
+        {
+          "program_id": "ccb",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": "Aucun problème majeur. Le texte confirme que l'on peut demander l'ACE lors de l'enregistrement de la naissance, que l'inscription en ligne est offerte en Ontario, qu'il faut la demander sur le formulaire d'enregistrement et donner son consentement pour la transmission à l'ARC. Le texte indique « de l'une des façons suivantes », ce qui appuie la possibilité de faire une demande directement à l'ARC, bien que cette option ne soit pas détaillée dans l'extrait. La première phrase (famille qui élève un enfant) est une description générale compatible avec le sujet."
+        },
+        {
+          "program_id": "ocb",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": "Aucun problème important. Chaque élément de l'énoncé figure dans le texte officiel : familles à revenu faible ou modéré, maximum de 1 760 $ par enfant par année selon le revenu familial net et le nombre d'enfants, absence de demande distincte, demande de l'ACE auprès de l'ARC avec évaluation automatique, et déclaration de revenus annuelle obligatoire. La mention « vous serez évaluée » est un simple accord grammatical au féminin."
+        },
+        {
+          "program_id": "ohip",
+          "fit": "likely",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "supported",
+          "problem": "Every claim in the statement is backed by the official text: eligible births (hospital with birthing facilities or licensed midwife), the newborn registration form, confirmation of primary residence in Ontario and at least 153 days in any 12-month period, keeping the bottom portion until the card arrives, and the card being mailed within eight weeks of the form being sent. The advice to contact ServiceOntario if no form is provided is also consistent with the text, which says to apply through ServiceOntario or contact the Health Insurance Eligibility Review Committee. The statement omits the committee option, but it does not contradict the text."
+        },
+        {
+          "program_id": "gst_hst_credit",
+          "fit": "possible",
+          "known_program": true,
+          "invented_citations": [],
+          "unbacked_numbers": [],
+          "wrong_language_sources": [],
+          "verdict": "partial",
+          "problem": "Le noyau est appuyé : versement trimestriel, ancien crédit pour la TPS/TVH, personnes et familles à revenu faible ou modeste, et prise en compte automatique de l'enfant si l'on reçoit l'ACE. Mais le texte ne dit pas que le revenu «le influencera l'admissibilité» ; il indique plutôt qu'on peut être admissible même sans revenu. Rien n'y mentionne non plus l'obligation de produire une déclaration de revenus. Enfin, « une fois l'ACE demandée, l'ARC tiendra compte de votre enfant » va plus loin que le texte, qui parle seulement de ceux qui reçoivent actuellement l'ACE."
+        }
+      ],
+      "grounded": 0.6,
+      "invented_citations": 0,
+      "unknown_programs": [],
+      "questions_asked": 1
+    },
+    "_trace_questions": [
+      {
+        "q": "Vivez-vous en Ontario, et avez-vous travaillé (salariée ou à votre compte) au cours de la dernière année?",
+        "a": "Oui, je vis à Sudbury, en Ontario, et je travaille à temps plein depuis 4 ans."
+      }
+    ]
+  }
+]

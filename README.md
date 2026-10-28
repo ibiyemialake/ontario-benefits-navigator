@@ -1,72 +1,78 @@
 # Ontario Benefits Navigator
 
-Start from what changed in your life, not from a program name. The navigator asks
-a few follow-up questions, searches official canada.ca and ontario.ca pages, and
-answers in English or French with a source link for every program.
+I'm a new immigrant to Canada, and working out what I could apply for was harder
+than it should be. The information is public, but it's spread across canada.ca and
+ontario.ca, and every page assumes you already know the program's name. I didn't. I
+just knew what had changed in my life.
 
-    "I just lost my job" ──► agent asks follow-ups ──► searches official pages (RAG)
-                                                            │
-       answer with sources ◄── checker holds back anything uncited ◄── final answer
+So you start there: "we just moved to Ontario with two kids" or "I got laid off". It
+asks a couple of follow-up questions, then tells you which programs probably fit,
+each with a link to the official page. English or French.
 
-## Setup
+## How it works
+
+`ingest` pulls the official pages for 7 programs, finds each page's French version
+by itself, chunks everything and stores it in a local Chroma index with the fetch date.
+
+The agent is a Claude tool-use loop with three tools: search the pages, ask one
+follow-up question (max 3), or answer. Every program in the answer has to cite the
+chunks it came from.
+
+Before you see anything, a checker flags made-up citations and numbers that aren't
+in the sources, and a second Claude call judges whether each explanation is actually
+supported. Anything rated unsupported gets held back.
+
+## The evals
+
+The part I'm proudest of. 6 scenarios in English and French, each listing the
+programs that should come up and ones that shouldn't (someone pregnant in Montreal
+should *not* get pointed to EI maternity, Quebec runs its own). A simulated person
+answers follow-ups from a fixed set of facts, so runs are comparable.
+
+Latest run (Oct 2026, Claude Sonnet 5.5):
+
+| recall | false positives | invented citations | right language | fully grounded |
+|---|---|---|---|---|
+| 1.00 | 0 | 0 | 6/6 | 0.33 |
+
+Right programs every time, no made-up citations. Grounding is the weak spot: only a
+third are fully supported, the rest are "partial", core right but a detail stretched, like "if you or your partner
+have been working, you may qualify" when each parent needs their own 600 hours.
+
+## Stack
+
+Python, Claude (Anthropic SDK), ChromaDB, requests + BeautifulSoup. Embeddings are
+`paraphrase-multilingual-MiniLM-L12-v2` because Chroma's default is English-only, so
+French questions weren't finding French text. Programs and scenarios live in YAML,
+so adding a program doesn't mean touching code.
+
+## Running it
 
     python -m venv .venv && source .venv/bin/activate    # Windows: .venv\Scripts\activate
     pip install -r requirements.txt
     export ANTHROPIC_API_KEY=sk-ant-...
-    python -m navigator.ingest      # fetches ~10 pages + French versions, ~2 min
+    python -m navigator.ingest      # fetches the pages + French versions, ~2 min
     python main.py                  # try: "I'm having a baby in March"
-    python -m evals.run_evals       # score all 6 scenarios
+    python -m evals.run_evals       # run all scenarios
 
-Re-run `ingest` monthly. Amounts change (the Ontario Child Benefit page showed
-two different yearly maximums in recent versions), and each answer shows the
-date its sources were checked.
+Re-run `ingest` every month or so. Amounts change (the Ontario Child Benefit page
+showed two different yearly maximums while I was building this), and every answer
+shows when its sources were checked.
 
-## What carries over from the job copilot
+On an Intel Mac torch stops at 2.2.2, which is why `transformers` is pinned.
 
-| Job copilot | Navigator |
-|---|---|
-| Evidence bank with IDs | Official page chunks with IDs |
-| Bullets must cite evidence IDs | Programs must cite chunk IDs |
-| Judge + number check | Same, plus "did it cite something it never retrieved?" |
-| 20 postings + known gaps | 6 scenarios + known right programs |
+## Limits
 
-New here: a real **agent** (Claude chooses between searching, asking a follow-up,
-and answering), **multilingual retrieval**, and **web ingestion**.
+General information, not eligibility decisions. Federal and Ontario only; Quebec and
+other provinces get flagged. Only as current as the last ingest.
 
-## Files
+## What's next
 
-| File | What it does |
-|---|---|
-| `data/sources.yaml` | The programs and official pages. Add programs here. |
-| `navigator/ingest.py` | Fetches pages, finds the French version, chunks, indexes |
-| `navigator/search.py` | Multilingual search, filtered by language |
-| `navigator/agent.py` | Tool-use loop: search / ask_user / final_answer |
-| `navigator/verify.py` | Citation, grounding, number and language checks |
-| `evals/scenarios.yaml` | Test situations with the correct programs |
-
-## Build plan (weeks 10–15)
-
-**Week 10 — Run it.** Ingest, try 5 situations of your own, read every answer
-critically. Look at what got chunked: `index/` is a normal Chroma database.
-
-**Week 11 — Ground truth.** Review `scenarios.yaml` (ideally with someone who
-knows these programs), then add to reach ~20 scenarios: edge cases like quitting
-vs. being laid off, self-employed parents, someone on a work permit.
-
-**Week 12 — Baseline and improve.** Run evals, write down the numbers, then change
-one thing at a time (chunk size, k, the system prompt) and rerun. Keep the table.
-
-**Week 13 — Widen coverage.** Add programs (Canada Dental Care Plan, Canada
-Workers Benefit, Ontario Trillium Benefit, OSAP) and a fourth life event.
-Re-run evals to make sure nothing regressed.
-
-**Week 14 — Web UI.** A simple Streamlit chat page.
-
-**Week 15 — Ship.** Short demo video, LinkedIn post with your eval table,
-CV bullet.
-
-## Limits (say these out loud in interviews, they show judgment)
-
-- General information, not eligibility decisions.
-- Federal + Ontario only. Quebec and other provinces are flagged as not covered.
-- Only as current as the last ingest.
+- Get grounding above 0.33, one prompt change at a time with an eval run after each.
+- ~20 scenarios with awkward cases: quitting vs. laid off, self-employed parents,
+  work permits.
+- More programs: Canada Dental Care Plan, Canada Workers Benefit, Ontario Trillium
+  Benefit, OSAP.
+- A simple Streamlit chat page.
+- Follow-up questions after the answer. Right now it's one-shot. <!-- noticed in code, check -->
+- Re-ingest only pages that changed instead of rebuilding the index. <!-- noticed in code, check -->
